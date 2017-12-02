@@ -6,8 +6,12 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import org.eclipse.persistence.annotations.Array;
+import org.eclipse.persistence.annotations.Struct;
 
 @Entity
 public class TeleDocMessage {
@@ -17,18 +21,19 @@ public class TeleDocMessage {
     private long timestamp = System.currentTimeMillis();
     private UUID person;
     private DataType dataType;
-    private double[] data;
+    @Column(columnDefinition="varchar") // Bleh, this is dumb
+    private List<Double> data;
 
     public UUID getUuid() {
         return uuid;
     }
 
     public List<Double> getData() {
-        return DoubleStream.of(data).boxed().collect(Collectors.toList());
+        return data;
     }
 
     public void setData(List<Double> data) {
-        this.data = data.stream().mapToDouble(d -> d.doubleValue()).toArray();
+        this.data = data;
     }
 
     public long getTimestamp() {
