@@ -1,4 +1,4 @@
-package com.teledoc.teledocmobile.communication;
+package com.teledoc.common.communication;
 
 import java.util.List;
 import java.util.Map;
