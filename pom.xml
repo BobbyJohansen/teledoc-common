@@ -5,4 +5,18 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>Teledoc Common</name>
   <description>Teledoc common</description>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>javax.persistence</artifactId>
+			<version>2.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+  </dependencies>
 </project>
